@@ -1,0 +1,95 @@
+body {
+  background: url('../img/background.jpg') no-repeat;
+}
+
+nav ul a,
+nav .brand-logo {
+  color: #fff;
+}
+
+nav ul a {
+  padding: 5px 55px;
+}
+
+p {
+  line-height: 2rem;
+}
+
+h1 {
+  color: rgba(255,255,255,.9);
+}
+
+h5 {
+  color: rgba(255,255,255,.9);
+}
+
+.downloaded {
+  font-size: 18px;
+  color: rgb(239, 124, 95);
+  padding-left: 10px;
+}
+
+.button-collapse {
+  color: #26a69a;
+}
+
+.link-icon {
+  color: #ff3d00;
+}
+
+.pagination li.disabled a {
+  color: #ffffff;
+}
+.pagination li a {
+  color: #64ff6c;
+}
+
+.collection.with-header .collection-item {
+  padding-left: 25px;
+}
+
+@media only screen and (max-width : 992px) {
+  .brand-logo {
+    margin-top: 3px;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  .brand-logo {
+    margin-top: 10px;
+  }
+}
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+.url {
+  border-bottom: 3px solid #ffffff !important;
+  color: #ffc107;
+}
+
+.email {
+  border-bottom: 3px solid #ffffff !important;
+  color: #ffc107;
+}
+
+::-webkit-input-placeholder {
+  color: #FFFFFF;
+}
+::-moz-placeholder {
+  color: #FFFFFF;
+}
+:-ms-input-placeholder {
+  color: #FFFFFF;
+}
+:-moz-placeholder {
+  color: #FFFFFF;
+}
+
+#label_text {
+  color: #ffffff;
+}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+<title>{% block title %}Youtube Downloader{% endblock title %}</title>
+
+{% block navbar %}
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="{% url 'index' %}" class="brand-logo"><i class="fa fa-desktop fa-4" aria-hidden="true"></i></a>
+    </div>
+{% endblock %}
+
+{% block download_section %}
+    <br><br>
+    <h1 class="header center">Youtube Downloader</h1>
+    <div class="row center">
+      <h5 class="header col s12 light">Easy Download Video From YouTube</h5>
+    </div>
+    <div class="row center">
+      <div class="row">
+        <div class="download-video col s12">
+          <div class="row">
+            <div class="input-field col s12 ">
+              <form action="{% url 'youtube:download_video' %}" method="POST">{% csrf_token %}
+                 {{ form.url }}
+                 {{ form.url.errors }}
+                 <button class="btn waves-effect waves-light btn-large orange darken-4 s12" type="submit" name="action">Download
+                    <i class="material-icons right">file_download</i>
+                 </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock download_section %}
+
+{% block list_url %}
+    <div class="col s12">
+        <ul class="collection with-header">
+          <li class="collection-header"><h4>History of your queries</h4></li>
+          <!-- Выводим все объекты из links -->
+          {% for link in links %}
+              <li class="collection-item">{{ link.id }} - <a href="{{ link.url }}">{{ link.url }}</a><span class="downloaded">{{ link.created }}</span><a href="{{ link.url }}" class="secondary-content"><i class="link-icon material-icons">slideshow</i></a></li>
+          {% empty %} <!-- Если нет объектов в links то выводим сообщение, что историй еще нет в базе данных -->
+              <li class="collection-item">There aren't request histories in the database</li>
+          {% endfor %}
+        </ul>
+    </div>
+
+    <ul class="pagination col 12 center">
+        {% if links.has_previous %} <!-- Проверяем есть ли в links предыдущий объект -->
+            <li class="disabled"><a href="?page={{ links.previous_page_number }}"><i class="material-icons">arrow_back</i></a></li>
+        {% endif %}
+
+        {% for link in links.paginator.page_range %} <!-- выводим общее количество страниц -->
+            <li class="waves-effect {% if links.number == link %}active{% endif %}"><a href="?page={{ link }}">{{ link }}</a></li>
+        {% endfor %}
+
+        {% if links.has_next %} <!-- Проверяем есть ли в links следующий объект -->
+            <li class="disabled"><a href="?page={{ links.next_page_number }}"><i class="material-icons">arrow_forward</i></a></li>
+        {% endif %}
+    </ul>
+{% endblock list_url %}
+

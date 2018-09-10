@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+<title>{% block title %}Video and Mp3 Downloader{% endblock title %}</title>
+
+{% block navbar %}
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="{% url 'index' %}" class="brand-logo"><i class="fa fa-desktop fa-4" aria-hidden="true"></i></a>
+    </div>
+{% endblock %}
+
+{% block header %}
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+          <br><br>
+          <h1 class="header center orange-text">Downloader</h1>
+          <div class="row center">
+            <h5 class="header col s12 light">Choose what do you want to download</h5>
+          </div>
+          <div class="row center">
+            <a href="{% url 'youtube:index' %}" class="btn-large waves-effect waves-light orange">VIDEO</a>
+            <a href="{% url 'mp3:index' %}" class="btn-large waves-effect waves-light orange">MP3</a>
+          </div>
+          <br><br>
+        </div>
+  </div>
+{% endblock header %}
