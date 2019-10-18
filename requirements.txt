@@ -15,7 +15,7 @@ olefile==0.44
 psycopg2==2.7.3
 pytz==2017.2
 requests==2.18.4
-urllib3==1.22
+urllib3==1.24.2
 uWSGI==2.0.15
 vine==1.1.4
 youtube-dl==2017.8.23
